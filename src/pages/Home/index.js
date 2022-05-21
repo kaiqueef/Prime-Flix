@@ -5,12 +5,15 @@ import './home.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import MovieList from "../../components/MovieList";
 
 // https://api.themoviedb.org/3/movie/popular?api_key=7a8e988df0c98a78f5908610d79cf071&language=pt-BR
 
 function Home() {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [popularMovies, setpopularMovies] = useState([]);
+    const [nowPlayingMovies, setnowPlayingMovies] = useState([]);
+    const [upcomingMovies, setUpcomingMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -24,15 +27,23 @@ function Home() {
             })
             switch(movieType) {
                 case 'top_rated':
-                    setTopRatedMovies(response.data.results.slice(0,20));
-                    setLoading(false);
+                    setTopRatedMovies(response.data.results);
                 case 'popular':
                     setpopularMovies(response.data.results);
-                    setLoading(false);
+                case 'now_playing':
+                    setnowPlayingMovies(response.data.results);
+                case 'upcoming':
+                    setUpcomingMovies(response.data.results);
+                }
             }
+        async function loadAllMovies(){
+            await loadMovies("top_rated");
+            await loadMovies("popular");
+            await loadMovies("now_playing");
+            await loadMovies("upcoming");
+            setLoading(false);
         }
-        loadMovies("top_rated");
-        loadMovies("popular");
+        loadAllMovies()
     }, [])
 
     function moveToRight(item){
@@ -52,54 +63,10 @@ function Home() {
     }
     return(
         <div className="container">
-            <div className="lista-filmes top-rated">
-                <h2>Top rated</h2>
-                <div className="carousel-button left" onClick={() => moveToLeft('top-rated')}>
-                    <FontAwesomeIcon icon={faChevronLeft}/>
-                </div>
-                <ul>
-                    {topRatedMovies.map((movie) => {
-                        return (
-                            <li>
-                                <article key={movie.id}>
-                                    <div>
-                                        <Link to={`/filme/${movie.id}`}>
-                                            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title}></img>
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </Link>
-                                        <h3>{movie.title}</h3>
-                                        <div>
-                                            <FontAwesomeIcon icon={faStar}/>
-                                            <h4>IMDb: {movie.vote_average} / 10</h4>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                        )
-                    })}
-                </ul>
-                <div className="carousel-button right" onClick={() => moveToRight('top-rated')}>
-                    <FontAwesomeIcon icon={faChevronRight}/>
-                </div>
-            </div>
-
-
-            <div className="lista-filmes popular">
-                <ul>
-                    {popularMovies.map((movie) => {
-                        return (
-                            <li>
-                                <article key={movie.id}>
-                                    <strong>{movie.title}</strong>
-                                    {/* <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title}></img> */}
-                                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title}></img>
-                                    <Link to={`/filme/${movie.id}`}>Acessar</Link>
-                                </article>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <MovieList title='Top Rated' class="top-rated" movies={topRatedMovies}></MovieList>
+            <MovieList title='Agora no cinema' class="now_playing" movies={nowPlayingMovies}></MovieList>
+            <MovieList title='Está por vir' class="upcoming" movies={upcomingMovies}></MovieList>
+            <MovieList title='Populares' class="popular" movies={popularMovies}></MovieList>
         </div>
     )
 }

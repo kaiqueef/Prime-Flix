@@ -20,9 +20,10 @@
 }
 
 .lista-filmes h2 {
-    color:#DDD;
+    color: #DDD;
     padding-left: 50px;
     padding-bottom: 5px;
+    margin-top: 51px;
 }
 .lista-filmes ul{
     display: flex;
@@ -53,7 +54,7 @@
 
 
 .lista-filmes .carousel-button.right {
-    left: calc(100vw - 50px);
+    left: calc(100% - 50px);
 }
 
 .lista-filmes .carousel-button.left {
