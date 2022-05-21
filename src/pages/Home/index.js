@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './home.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 
 // https://api.themoviedb.org/3/movie/popular?api_key=7a8e988df0c98a78f5908610d79cf071&language=pt-BR
 
@@ -53,6 +53,7 @@ function Home() {
     return(
         <div className="container">
             <div className="lista-filmes top-rated">
+                <h2>Top rated</h2>
                 <div className="carousel-button left" onClick={() => moveToLeft('top-rated')}>
                     <FontAwesomeIcon icon={faChevronLeft}/>
                 </div>
@@ -61,10 +62,17 @@ function Home() {
                         return (
                             <li>
                                 <article key={movie.id}>
-                                    {/* <strong>{movie.title}</strong> */}
-                                    <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title}></img>
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    {/* <Link to={`/filme/${movie.id}`}>Acessar</Link> */}
+                                    <div>
+                                        <Link to={`/filme/${movie.id}`}>
+                                            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title}></img>
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </Link>
+                                        <h3>{movie.title}</h3>
+                                        <div>
+                                            <FontAwesomeIcon icon={faStar}/>
+                                            <h4>IMDb: {movie.vote_average} / 10</h4>
+                                        </div>
+                                    </div>
                                 </article>
                             </li>
                         )
@@ -74,6 +82,8 @@ function Home() {
                     <FontAwesomeIcon icon={faChevronRight}/>
                 </div>
             </div>
+
+
             <div className="lista-filmes popular">
                 <ul>
                     {popularMovies.map((movie) => {
