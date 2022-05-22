@@ -1,10 +1,10 @@
 .not-found{
-    width: 100%;
-    height: calc(100vh - 60px);
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color:#EEE;
 }
 
 .not-found h1 {
@@ -12,10 +12,6 @@
 }
 
 .not-found a{
-    text-decoration: none;
-    background-color: #116feb;
-    color: #FFF;
     padding: 10px 15px;
     margin-top: 14px;
-    border-radius: 5px;
 }
