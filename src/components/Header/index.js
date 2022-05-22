@@ -4,7 +4,7 @@ import './header.css'
 function Header() {
     return(
         <header>
-            <Link className="logo" to="/">Prime Flix</Link>
+            <Link className="logo glitch" to="/" data-text="Prime Flix">Prime Flix</Link>
             <Link className="favoritos" to="/favoritos">Meus Filmes</Link>
         </header>
     )
