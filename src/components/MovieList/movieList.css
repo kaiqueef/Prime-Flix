@@ -22,6 +22,10 @@
     overflow-x: hidden;
 }
 
+.lista-filmes ul::-webkit-scrollbar {
+    display: none;
+}
+
 .lista-filmes .carousel-button {
     position: absolute;
     width: 50px;
@@ -138,4 +142,10 @@
     display: block;
     border-radius: 3px;
     margin-top: auto;
+}
+
+@media only screen and (max-width: 480px) {
+    .lista-filmes ul {
+        overflow-x: auto;
+    }
 }

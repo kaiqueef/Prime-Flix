@@ -3,15 +3,29 @@ import './movieList.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from 'react';
 
 function MovieList(props) {
+    const mobileBannerWidth = 300;
+    const carouselButtonWidth = 50;
+    const [scrollWidth, setScrollWidth] = useState(900);
+
+    function calculateScrollSize() {
+        const { innerWidth: width } = window;
+        return Math.floor((width - carouselButtonWidth*2)/mobileBannerWidth)*mobileBannerWidth || mobileBannerWidth;
+    }
+
+    useEffect (() => {
+        const scrollSize = calculateScrollSize()
+        setScrollWidth(scrollSize);
+    })
 
     function moveToRight(item){
-        document.querySelector(`.${item} ul`).scrollBy({top: 0, left: 900, behavior: 'smooth' })
+        document.querySelector(`.${item} ul`).scrollBy({top: 0, left: scrollWidth, behavior: 'smooth' })
     }
     
     function moveToLeft(item){
-        document.querySelector(`.${item} ul`).scrollBy({top: 0, left: -900, behavior: 'smooth' })
+        document.querySelector(`.${item} ul`).scrollBy({top: 0, left: -scrollWidth, behavior: 'smooth' })
     }
 
     return(

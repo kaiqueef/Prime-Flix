@@ -21,5 +21,10 @@ header .logo{
 header .favoritos{
     padding: 5px 14px;
     white-space: nowrap;
-    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+    header .favoritos{
+        margin-bottom: 10px;
+    }
 }
