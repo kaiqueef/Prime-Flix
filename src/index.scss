@@ -15,8 +15,17 @@ body{
   align-items: center;
   width:100%;
   flex-direction: column;
+  min-height: 100vh;
 }
 
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+  color: #EEE;
+}
 
 
 .glitch{
@@ -96,5 +105,5 @@ body{
   color:#000;
 }
 .button:hover:after {
-  height: 400%;
+  height: 500%;
 } 

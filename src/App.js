@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <ToastContainer position="bottom-right"
                       autoClose={2000}
                       hideProgressBar

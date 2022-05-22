@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color:#EEE;
 }
 
 .my-movies h1{
@@ -33,7 +34,5 @@
 }
 
 .my-movies div a {
-    text-decoration: none;
-    color:#116feb;
     margin-right: 14px;
 }
