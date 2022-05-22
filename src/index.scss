@@ -85,7 +85,8 @@ body{
   cursor: pointer;
   border: 3px solid #EEE;
   padding: 2px 10px;
-  overflow: hidden;
+  overflow: clip;
+  overflow-clip-margin: 1px;
   position: relative;
   white-space: nowrap;
   z-index: 0;
