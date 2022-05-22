@@ -42,7 +42,7 @@ footer > div > div:not(.logo) {
 
 footer > div > div:not(.logo) .list {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     font-size: 34px;
     padding-top: 10px;
@@ -50,6 +50,8 @@ footer > div > div:not(.logo) .list {
 
 footer > div > div:not(.logo) .list > * {
     color:#EEE;
+    padding-left: 10px;
+    padding-right: 10px;
     transition: var(--transition-time);
 }
 footer > div > div:not(.logo) .list > *:hover {
