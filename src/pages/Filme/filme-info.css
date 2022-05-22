@@ -26,6 +26,10 @@
 .filme-info span {
     margin: 8px 0;
 }
+.area-buttons {
+    margin: 10px 0;
+}
+
 .area-buttons button:not(:first-of-type) {
     margin-left: 10px;
 }
