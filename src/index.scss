@@ -87,6 +87,7 @@ body{
   padding: 2px 10px;
   overflow: hidden;
   position: relative;
+  white-space: nowrap;
   z-index: 0;
 }
 .button:after {

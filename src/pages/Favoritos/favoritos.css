@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     color:#EEE;
+    width: 100%;
 }
 
 .my-movies h1{
@@ -15,16 +16,17 @@
 }
 
 .my-movies ul {
-    width: 720px;
+    width: 100%;
+    max-width: 720px;
 }
-
 .my-movies ul li {
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 14px;
-
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .my-movies div {
