@@ -30,7 +30,7 @@ body{
 
 .glitch{
   position:relative;
-  width: 150px;
+  white-space: nowrap;
 }
 @keyframes noise-anim{
   $steps:20;

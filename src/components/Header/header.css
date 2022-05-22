@@ -1,7 +1,7 @@
 header{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 60px;
     background-color: #000;
@@ -9,12 +9,14 @@ header{
 
 header .logo{
     text-decoration: none;
-    font-size: 30px;
+    font-size: 45px;
     cursor: pointer;
     color: #FFF;
     font-weight: bold;
+    margin-left: 50px;
 }
 
 header .favoritos{
     padding: 5px 14px;
+    margin-right: 20px;
 }
