@@ -5,7 +5,7 @@ function Header() {
     return(
         <header>
             <Link className="logo glitch" to="/" data-text="Prime Flix">Prime Flix</Link>
-            <Link className="favoritos" to="/favoritos">Meus Filmes</Link>
+            <Link className="favoritos button" to="/favoritos">Meus Filmes</Link>
         </header>
     )
 }

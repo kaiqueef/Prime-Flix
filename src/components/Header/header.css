@@ -16,33 +16,5 @@ header .logo{
 }
 
 header .favoritos{
-    text-decoration: none;
-    font-size: 18px;
-    color: #EEE;
-    font-weight: 600;
-    cursor: pointer;
     padding: 5px 14px;
-    border: 3px solid #EEE;
-    overflow: hidden;
-    position: relative;
-    z-index: 0;
 }
-
-header .favoritos:after {
-    content: '';
-    background: #EEE;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 0%;
-    transform: translate(-50%, -50%) rotate(-135deg);
-    transition: var(--transition-time);
-    z-index: -1;
-}
-header .favoritos:hover {
-    color:#000;
-}
-header .favoritos:hover:after {
-    height: 400%;
-} 

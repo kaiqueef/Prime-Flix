@@ -3,9 +3,9 @@
     margin-top: 18px;
     display: flex;
     flex-direction: column;
-    /* max-width: 100vw; */
     max-width: 800px;
     padding: 0 8px;
+    color: #EEE;
 }
 
 .filme-info h1{
@@ -26,34 +26,13 @@
 .filme-info span {
     margin: 8px 0;
 }
-
-.area-buttons button{
-    margin-right: 12px;
-    margin-top: 14px;
-    margin-left: 0;
-    font-size: 20px;
-    border: 0;
-    outline: none;
-    padding: 12px;
-    border-radius: 4px;
-    cursor: pointer;
+.area-buttons button:not(:first-of-type) {
+    margin-left: 10px;
 }
-
 .area-buttons a{
     text-decoration: none;
+    color:#EEE
+}
+.area-buttons a:hover{
     color: #000;
-}
-
-.area-buttons button,
-.area-buttons button a {
-    transition: 0.3s;
-}
-
-.area-buttons button:hover{
-    background-color: brown;
-    color: #FFF;
-}
-
-.area-buttons button:hover a{
-    color: #FFF;
 }
