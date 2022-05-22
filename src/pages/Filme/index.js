@@ -24,7 +24,7 @@ function Filme() {
                     setLoading(false);
                 })
                 .catch(() => {
-                    console.log("Filme não encontrado");
+                    toast.warn("Filme não encontrado.");
                     navigate("/", { replace: false });
                     return
                 })
