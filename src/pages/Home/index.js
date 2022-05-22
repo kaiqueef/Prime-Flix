@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react"
 import api from '../../services/api'
-import { Link } from "react-router-dom";
 import './home.css'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import MovieList from "../../components/MovieList";
 
 // https://api.themoviedb.org/3/movie/popular?api_key=7a8e988df0c98a78f5908610d79cf071&language=pt-BR
@@ -14,7 +11,9 @@ function Home() {
     const [popularMovies, setpopularMovies] = useState([]);
     const [nowPlayingMovies, setnowPlayingMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
+    const [favoriteMovies, setfavoriteMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const hasFavoriteMovies = localStorage.getItem("@primeflix") != null && localStorage.getItem("@primeflix").length>2;
 
     useEffect(() => {
         async function loadMovies(movieType) {
@@ -34,6 +33,9 @@ function Home() {
                     setnowPlayingMovies(response.data.results);
                 case 'upcoming':
                     setUpcomingMovies(response.data.results);
+                case 'favorites':
+                    if(hasFavoriteMovies)
+                        setfavoriteMovies(JSON.parse(localStorage.getItem("@primeflix")))
                 }
             }
         async function loadAllMovies(){
@@ -46,14 +48,6 @@ function Home() {
         loadAllMovies()
     }, [])
 
-    function moveToRight(item){
-        document.querySelector(`.${item} ul`).scrollBy({top: 0, left: 900, behavior: 'smooth' })
-    }
-    
-    function moveToLeft(item){
-        document.querySelector(`.${item} ul`).scrollBy({top: 0, left: -900, behavior: 'smooth' })
-    }
-
     if(loading){
         return(
             <div className="loading">
@@ -61,8 +55,11 @@ function Home() {
             </div>
         )
     }
+    const a = 1;
     return(
         <div className="container">
+            {hasFavoriteMovies && 
+            <MovieList title='Seus favoritos' class="favorites" movies={favoriteMovies}></MovieList>}
             <MovieList title='Top Rated' class="top-rated" movies={topRatedMovies}></MovieList>
             <MovieList title='Agora no cinema' class="now_playing" movies={nowPlayingMovies}></MovieList>
             <MovieList title='Está por vir' class="upcoming" movies={upcomingMovies}></MovieList>

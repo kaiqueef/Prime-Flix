@@ -69,6 +69,10 @@
     margin-left: 50px;
 }
 
+.lista-filmes li:last-of-type {
+    margin-right: 50px;
+}
+
 .lista-filmes article{
     width: var(--movies-width);
     background-color: #141414;
