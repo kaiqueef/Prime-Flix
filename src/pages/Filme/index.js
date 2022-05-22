@@ -67,7 +67,8 @@ function Filme() {
         <div className="filme-info">
             <h1>{movie.title}</h1>
             <strong>Avaliação: {movie.vote_average} / 10</strong>
-            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title}></img>
+            <img className="desktop" src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt={movie.title}></img>
+            <img className="mobile" src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title}></img>
             <h3>Sinopse</h3>
             <span>{movie.overview}</span>
 

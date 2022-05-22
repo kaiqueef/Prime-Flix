@@ -40,3 +40,16 @@
 .area-buttons a:hover{
     color: #000;
 }
+
+.mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .mobile {
+        display: block;
+    }
+    .desktop {
+        display: none;
+    }
+}
