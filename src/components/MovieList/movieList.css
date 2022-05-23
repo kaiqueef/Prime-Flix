@@ -74,7 +74,6 @@
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -87,10 +86,12 @@
     height: var(--movies-height);
     z-index: 1;
     transition: var(--transition-time);
+    position: relative;
+    left: 0;
 }
 
 .lista-filmes ul>li:hover {
-    z-index: 22;
+    z-index: 2;
 }
 
 .lista-filmes article:hover>div {
@@ -100,6 +101,8 @@
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
+    transition-delay: var(--transition-time);
+    left: -30px;
 }
 
 
@@ -111,6 +114,10 @@
     font-size: 0;
 }
 
+.lista-filmes article:hover>div img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
 .lista-filmes article:hover>div h3 {
     font-size: 18px;
     font-weight: 100;
@@ -124,14 +131,14 @@
     padding-top: 5px;
 }
 
-.lista-filmes article:hover>div>div {
+.lista-filmes article:hover>div>div>div {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #EEE;
 }
 
-.lista-filmes article:hover>div>div h4 {
+.lista-filmes article:hover>div>div>div h4 {
     padding-left: 5px;
 }
 
