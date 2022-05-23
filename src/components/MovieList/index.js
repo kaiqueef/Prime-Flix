@@ -29,6 +29,11 @@ function MovieList(props) {
     }
 
     function checkPosition(event) {
+        const elementLeftPosition = event.currentTarget.parentElement.getBoundingClientRect().left;
+        if(elementLeftPosition < 0){
+            event.currentTarget.parentNode.style.left = `calc(${-elementLeftPosition}px + 2px)`
+            return
+        }
         const mousePosition = event.nativeEvent.clientX;
         if (mousePosition < mobileBannerWidth+carouselButtonWidth){
             event.currentTarget.parentNode.style.left = 0;
