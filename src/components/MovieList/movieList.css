@@ -19,7 +19,7 @@
     display: flex;
     position: absolute;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .lista-filmes ul::-webkit-scrollbar {
@@ -149,10 +149,4 @@
     display: block;
     border-radius: 3px;
     margin-top: auto;
-}
-
-@media only screen and (max-width: 480px) {
-    .lista-filmes ul {
-        overflow-x: auto;
-    }
 }

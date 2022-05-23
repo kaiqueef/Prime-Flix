@@ -21,7 +21,7 @@ function Footer() {
                     <Link to="/" onClick={scrollToTop} data-text="Prime" onMouseEnter={toggleHover} onMouseLeave={toggleHover} className={hovered ? 'glitch': ''}> Prime</Link>
                 </div>
                 <div className='tecnologies'>
-                    <h3>Tecnologias usadas:</h3>
+                    <h3>Tecnologias utilizadas</h3>
                     <div className='list'>
                         <i className='react'><FontAwesomeIcon icon={faReact} /></i>
                         <i className='js'><FontAwesomeIcon icon={faJs} /></i>
@@ -30,7 +30,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className='contact-info'>
-                    <h3>Kaique Ferreira</h3>
+                    <h3>by: Kaique Ferreira</h3>
                     <div className='list'>
                         <a className="linkedin" href="https://www.linkedin.com/in/kaique-ferreira-854a75139/" target="_blank"><FontAwesomeIcon icon={faLinkedinIn} /></a>
                         <a className="github" href="https://github.com/kaiqueef" target="_blank"><FontAwesomeIcon icon={faGithub} /></a>
